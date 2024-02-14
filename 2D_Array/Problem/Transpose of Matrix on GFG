@@ -1,0 +1,48 @@
+https://www.geeksforgeeks.org/problems/transpose-of-matrix-1587115621/1?utm_source=geeksforgeeks&utm_medium=ml_article_practice_tab&utm_campaign=article_practice_tab
+#include<iostream>
+#include<vector>
+using namespace std;
+class sol{
+public:
+ void transpose(vector<vector<int> >&matrix,int n)
+ { 
+ for(int i=0;i<n-1;i++)
+        {
+            for(int j=i+1;j<n;j++)
+            
+                swap(matrix[i][j],matrix[j][i]);
+            
+            
+        }
+    }
+ 
+};
+int main(){
+      int t;
+      cout<<"enter the matrix size"<<endl;
+      cin>>t;
+      
+      while(t--)
+      {
+             int n;
+         cin>>n;
+            vector<vector<int> >matrix(n,vector<int>(n));
+            for(int i=0;i<n;i++)
+            {
+            for(int j=0;j<n;j++){
+            cin>>matrix[i][j];
+            }
+            }
+           sol ob;
+           ob.transpose(matrix ,n);
+         for(int i=0;i<n;i++)
+            {
+            for(int j=0;j<n;j++){
+            cout<<matrix[i][j]<<" ";
+            cout<<endl;
+            }
+            }
+            return 0;
+
+      }
+}
