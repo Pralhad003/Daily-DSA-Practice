@@ -1,0 +1,59 @@
+https://leetcode.com/problems/rotate-image/description/
+
+#include<iostream>
+#include<vector>
+using namespace std;
+class sol{
+public:
+ void transpose(vector<vector<int> >&matrix,int n)
+ { 
+ // Transpose the matrix
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = i + 1; j < n; j++) {
+                swap(matrix[i][j], matrix[j][i]);
+            }
+        }
+
+        // Reverse each row
+        for (int i = 0; i < n; i++) {
+            int start = 0, end = n - 1;
+
+            // Reset start and end for each row
+            while (start < end) {
+                swap(matrix[i][start], matrix[i][end]);
+                start++;
+                end--;
+            }
+        }
+    }
+ 
+};
+int main(){
+      int t;
+      cout<<"enter the matrix size"<<endl;
+      cin>>t;
+      
+      while(t--)
+      {
+             int n;
+         cin>>n;
+            vector<vector<int> >matrix(n,vector<int>(n));
+            for(int i=0;i<n;i++)
+            {
+            for(int j=0;j<n;j++){
+            cin>>matrix[i][j];
+            }
+            }
+           sol ob;
+           ob.transpose(matrix ,n);
+         for(int i=0;i<n;i++)
+            {
+            for(int j=0;j<n;j++){
+            cout<<matrix[i][j]<<" ";
+            cout<<endl;
+            }
+            }
+            return 0;
+
+      }
+}
