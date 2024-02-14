@@ -6,7 +6,16 @@ using namespace std;
 class sol{
 public:
  void transpose(vector<vector<int> >&matrix,int n)
- { 
+ {  
+ //Method 1 rotation
+     for(int i = 0; i < n; i++) {
+            for(int j = 0; j < n; j++) {
+                // Use a temporary variable to swap elements
+                int temp = matrix[j][n - 1 - i];
+                matrix[j][n - 1 - i] = matrix[i][j];
+                matrix[i][j] = temp;
+            }
+        }
  // Transpose the matrix
         for (int i = 0; i < n - 1; i++) {
             for (int j = i + 1; j < n; j++) {
